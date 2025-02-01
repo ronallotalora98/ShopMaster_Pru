@@ -1,0 +1,115 @@
+.pos-relative {
+  position: relative;
+  }
+
+  .pos-absolute {
+  position: absolute;
+  }
+
+  .flex {
+  display: flex;
+  }
+
+  .flex-column {
+  flex-direction: column;
+  }
+
+  .align-items-center {
+  align-items: center;
+  }
+
+  .flex-wrap {
+  flex-wrap: wrap;
+  }
+
+  .gap-5 {
+  gap: 5px;
+  }
+
+  .gap-10 {
+  gap: 10px;
+  }
+
+  .gap-20 {
+  gap: 20px;
+  }
+
+  .gap-30 {
+  gap: 30px;
+  }
+
+  .gap-40 {
+  gap: 40px;
+  }
+
+  .carril-navegacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 10px 20px;
+  gap: 20px;
+  position: fixed;
+  width: 72px;
+  overflow-x: hidden;
+  // height: 100vh;
+  background: #FFFFFF;
+  border-radius: 0px 0px 10px 0px;
+  justify-content: space-between;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  overflow: hidden;
+  }
+
+  .seccion-superior,
+  .seccion-inferior {
+  width: 100%;
+  }
+
+  .carril-elemento {
+  display: flex;
+  width: 100%;
+  min-width: 300px;
+  overflow-x: hidden;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  height: 56px;
+  color: #024588;
+  mix-blend-mode: normal;
+  cursor: pointer;
+  padding: 12px 10px;
+  white-space: nowrap;
+  }
+
+  .carril-elemento:hover {
+  background: #D7E5F4;
+  border-radius: 10px;
+  }
+
+  .carril-navegacion .carril-elemento .icon-box {
+  position: relative;
+  width: 52px;
+  background: #FFFFFF;
+  }
+
+  .carril-navegacion .carril-elemento:hover .icon-box {
+  background: #D7E5F4;
+  border-radius: 10px;
+  }
+
+  .carril-navegacion #logo-aiep2 {
+  display: none;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  }
+
+  .divisor {
+    border-top: 1px solid rgba(0, 40, 70, 0.3);
+    margin: 10px 0;
+    width: 100%;
+  }

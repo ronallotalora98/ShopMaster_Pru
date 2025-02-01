@@ -1,0 +1,97 @@
+<div class="table-container">
+  <div>
+    <ng-container>
+      <div class="encabezado">
+        <h2 class="title">{{title}}</h2>
+        <p class="description">{{description}}</p>
+      </div>
+      <hr class="divisor" />
+    </ng-container>
+
+    <!-- Filtro -->
+    <div  class="filter-container">
+      <div class="entries">
+        <label for="entries">Ver</label>
+        <select id="entries" [(ngModel)]="entriesToShow" (change)="handleEntriesChange($event)">
+          <option [value]="7">7</option>
+          <option [value]="10">10</option>
+          <option [value]="15">15</option>
+        </select>
+        <span>entradas</span>
+      </div>
+      <label for="">Aqui Buscador</label>
+      <!-- <app-buscador (onChange)="handleFilterChange($event)" [placeholderBuscador]="placeholderBuscador"></app-buscador> -->
+    </div>
+  </div>
+
+  <!-- Contenedor para scroll horizontal -->
+  <div class="table-wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="header_accion">Acción</th>
+          <th *ngFor="let item of headerTable">{{item}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of currentEntries" class="row">
+          <td>
+            <ng-container>
+              <div class="tooltipWrapper">
+                <button class="actionButton" (click)="onClickEditar(item.id)">
+                  <img src="../../../../assets/Icons/Malta/ver_lineal.svg" alt="Ver" />
+                </button>
+                <span class="tooltipText">Ver</span>
+              </div>
+            </ng-container>
+
+            <ng-container>
+              <div class="tooltipWrapper">
+                <button class="actionButton" (click)="onClickEditar(item.id)">
+                  <img src="../../../../assets/Icons/Malta/editar_lineal.svg" alt="Editar" />
+                </button>
+                <span class="tooltipText">Editar</span>
+              </div>
+            </ng-container>
+
+            <ng-container>
+              <div class="tooltipWrapper">
+                <button class="actionButton" (click)="onClickDelete(item.id)">
+                  <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Eliminar" />
+                </button>
+                <span class="tooltipText">Eliminar</span>
+              </div>
+            </ng-container>
+          </td>
+
+          <td *ngFor="let key of objectKeys(item).slice(0, excludeLastColumn ? -1 : undefined)">
+            <ng-container>
+          <td>{{item[key]}}</td>
+          </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <app-empty-table *ngIf="currentEntries.length === 0" [title]="tituloEmptyTable" [texto]="textoEmptyTable"></app-empty-table> -->
+  </div>
+
+  <!-- Paginación -->
+  <div class="footer">
+    <span class="resultsText">
+      Viendo {{indexOfFirstEntry + 1}} a {{getMinIndex(indexOfLastEntry, filteredData.length)}} de {{filteredData.length}} resultados
+    </span>
+    <div class="pagination">
+      <button (click)="handlePrevPage()" [disabled]="currentPage === 1" class="paginationButton">
+        <img src="../../../../assets/Icons/Malta/flecha_izquierda_lineal.svg" alt="Anterior" class="arrowIcon" />
+      </button>
+      <button *ngFor="let page of [].constructor(totalPages); let index = index" (click)="setCurrentPage(index + 1)"
+       [ngClass]="{'activePage': currentPage === index + 1, 'inactivePage': currentPage !== index + 1}" class="paginationButton">
+        {{index + 1}}
+      </button>
+      <button (click)="handleNextPage()" [disabled]="currentPage === totalPages" class="paginationButton">
+        <img src="../../../../assets/Icons/Malta/flecha_derecha_lineal.svg" alt="Siguiente" class="arrowIcon" />
+      </button>
+    </div>
+  </div>
+</div>

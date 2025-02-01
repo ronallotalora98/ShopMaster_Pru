@@ -18,6 +18,12 @@ namespace E_Comers_Pru.Services.Mapper
 
             CreateMap<RolDto, RolEntity>();
             CreateMap<RolEntity, RolDto>();
+
+            CreateMap<CategoryDto, CategoryEntity>();
+            CreateMap<CategoryEntity, CategoryDto>();
+
+            CreateMap<ProductDto, ProductEntity>();
+            CreateMap<ProductEntity, ProductDto>();
         }
     }
 }

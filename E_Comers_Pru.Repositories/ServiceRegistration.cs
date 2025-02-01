@@ -15,6 +15,9 @@ namespace E_Comers_Pru.Repositories
                  options.UseSqlServer(configuration.GetConnectionString("ServerConnection")));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepositoy, ProductRepositoy>();
 
 
 

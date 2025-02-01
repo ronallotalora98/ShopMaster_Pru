@@ -23,6 +23,11 @@ namespace E_Comers_Pru.Services
 
             services.AddScoped<IJwtSecurityService, JwtSecurityService>();
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProducService, ProducService>();
+            services.AddScoped<IShopService, ShopService>();
+
 
         }
 

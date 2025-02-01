@@ -1,0 +1,184 @@
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-width: 1300px;
+  height: 60px;
+  background: #FFFFFF;
+  align-items: center;
+  box-shadow: 0px 3px 16px rgba(16, 15, 15, 0.2);
+}
+
+.barra-superior .logo-aiep {
+  display: flex;
+  align-items: center;
+  width: 90px;
+}
+
+.barra-superior .menu-horizontal {
+  display: flex;
+  position: relative;
+  list-style-type: none;
+  margin-block-start: unset;
+  margin-block-end: unset;
+  margin-inline-start: unset;
+  margin-inline-end: unset;
+  padding-inline-start: unset;
+}
+
+.menu-horizontal li {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 20px;
+  gap: 10px;
+  height: 60px;
+  mix-blend-mode: normal;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #024588;
+  cursor: pointer;
+}
+
+.menu-horizontal li:hover {
+  border-bottom: 3px solid #024588;
+  background: #EBF2F9;
+}
+
+.submenu-lista {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 260px;
+  top: 60px;
+  padding-top: 10px;
+  left: 0;
+  position: absolute;
+  filter: drop-shadow(0px 3px 16px rgba(16, 15, 15, 0.2));
+  border-radius: 10px;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background: transparent;
+}
+
+.submenu-lista li {
+  background: #FFFFFF;
+  align-items: center;
+  padding: 12px 20px;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #024588;
+}
+
+.submenu-lista li:hover {
+  background: #EBF2F9 !important;
+  border-bottom: unset !important;
+}
+
+.submenu-lista li:first-child {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.submenu-lista li:last-child {
+  border-radius: 0px 0px 10px 10px;
+}
+
+.barra-superior .icon-box {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  gap: 10px;
+  width: max-content;
+  height: 60px;
+  cursor: pointer;
+}
+
+.barra-superior .btn-admision {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 20px;
+  gap: 10px;
+  border: unset;
+  outline: unset;
+  width: 118px;
+  height: 60px;
+  background: #B40000;
+  mix-blend-mode: normal;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.barra-superior .btn-admision:hover {
+  background-color: #E33535;
+}
+
+.barra-superior .btn-admision:active {
+  background-color: #E33535;
+  border: 3px solid #B40000;
+}
+
+#menu-movil {
+  display: none;
+}
+
+@media (max-width: 1299px) {
+  .barra-superior {
+    width: 100%;
+    min-width: 600px;
+    max-width: 1200px;
+    padding: 0 10px;
+  }
+
+  .barra-superior .menu-horizontal {
+    display: none;
+  }
+
+  .barra-superior .btn-admision {
+    order: 1;
+  }
+
+  .barra-superior .icon-box {
+    order: 2;
+  }
+
+  #servicios-financieros {
+    display: none;
+  }
+
+  #user {
+    display: none;
+  }
+
+  #menu-movil {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .barra-superior {
+    width: 100%;
+    min-width: unset;
+    max-width: 500px;
+  }
+}

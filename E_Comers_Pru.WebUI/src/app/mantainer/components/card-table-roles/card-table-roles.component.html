@@ -1,0 +1,36 @@
+
+<div class="encabezado">
+  <h2 class="title">Listado de Roles</h2>
+  <p class="description">asdjalksfjalkdsfalksfjlaskjflak</p>
+</div>
+<hr class="divisor" />
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Acciones</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of roleData;">
+      <td>{{ item.id }}</td>
+      <th>{{item.name}}</th>
+      <td>{{item.code}}</td>
+
+      <td style="text-align: center;">
+        <button  status="info" style="margin: 5px;">Edit</button>
+        <button   class="primario" style="margin: 5px;" (click)="goToVerDetalle(item.id)">Ver Detalle</button>
+        <button   class="primario" style="margin: 5px;" (click)="goToVerDetalle(item.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
