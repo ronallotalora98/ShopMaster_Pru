@@ -1,1 +1,242 @@
 /* You can add global styles to this file, and also import other style files */
+
+.button_style {
+  align-items: center;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  line-height: 20px;
+  mix-blend-mode: normal;
+  padding: 15px 28px;
+  text-align: center;
+}
+
+.noStyle {
+  background-color: #ffffff;
+}
+
+.primary {
+  background-color: #ffffff;
+  border: 1px solid #024588 !important;
+  color: #024588;
+  font-weight: 500;
+}
+
+.info {
+  background-color: #d7e5f4;
+  color: #024588;
+  font-weight: 600;
+}
+
+.info_redondo {
+  background-color: #d7e5f4;
+  color: #024588;
+  font-weight: 500;
+  border-radius: 14px;
+  font-size: 15px;
+  width: 80px;
+  height: 32px;
+  padding: 6px 10px 6px 10px;
+}
+
+.success_redondo {
+  background-color: #e3f8e3;
+  color: #258422;
+  font-weight: 500;
+  border-radius: 14px;
+  font-size: 13px;
+  width: 115px;
+  height: 32px;
+  padding: 6px 10px 6px 10px;
+}
+
+.default_redondo {
+  background-color: #f0efef;
+  color: #b6afaf;
+  font-weight: 500;
+  border-radius: 14px;
+  font-size: 15px;
+  width: 85px;
+  height: 32px;
+  padding: 6px 10px 6px 10px;
+}
+
+.danger {
+  font-weight: 600;
+  background-color: #b40000;
+  color: #ffffff;
+}
+
+.button_style:hover {
+  background-color: #ebf2f9;
+}
+
+.button_style:active {
+  background-color: #ebf2f9;
+  border: 3px solid #024588;
+}
+
+.danger:hover {
+  background-color: #e33535;
+}
+
+
+.success {
+  font-weight: 600;
+  background-color: #1bb400;
+  color: #ffffff;
+}
+
+.success:hover {
+  background-color: #35e358;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+button.terciario {
+  align-items: center;
+  background-color: unset;
+  border-radius: 10px;
+  border: 1px solid #024588;
+  color: #024588;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  line-height: 20px;
+  mix-blend-mode: normal;
+  padding: 15px 28px;
+  text-align: center;
+}
+
+
+button.terciario:hover {
+
+
+  border: 2px solid #024588;
+
+}
+
+button.terciario:active {
+
+
+  border: 3px solid #024588;
+
+}
+
+
+
+.formColumn {
+  margin-bottom: 20px;
+  flex: 1 1 270px;
+}
+
+.formColumn input {
+  // padding: 15px 40px 15px 20px;
+  min-width: 270px;
+  height: 40px;
+  background: #FAF9F9;
+  mix-blend-mode: normal;
+  border: 1px solid #024588;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #024588;
+  box-shadow: unset;
+  outline: unset;
+  width: 100%;
+  position: relative;
+}
+
+.formColumn label.disabled {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #B6AFAF;
+}
+
+.formColumn input.disabled {
+  border: 1px solid #B6AFAF;
+  color: #B6AFAF;
+  cursor: not-allowed;
+}
+
+.formColumn input.disabled:hover {
+  border: 1px solid #B6AFAF;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #024588;
+  font-weight: 500;
+}
+
+.formInput {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.inputField:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.iconoBorrarClase {
+  position: absolute;
+  right: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formError {
+  margin-top: 5px;
+  color: red;
+  font-size: 12px;
+}
+
+
+.container_form {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

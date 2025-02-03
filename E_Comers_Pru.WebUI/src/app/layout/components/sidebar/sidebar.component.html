@@ -1,4 +1,4 @@
-<div class="carril-navegacion" style="width: 300px;">
+<!-- <div class="carril-navegacion" style="width: 300px;">
 
   <div class="seccion-superior">
     <div class="flex flex-column gap-5">
@@ -87,3 +87,120 @@
 
   </div>
 </div>
+ -->
+
+<div class="carrilNavegacion">
+  <div class="seccionSuperior">
+    <div class="logoImagen">
+      <img
+        src="../../../../assets/Img/ShopMasterLogo.png"
+        alt="Logo"
+        [routerLink]="['/home']"
+        width="150"
+        height="100"
+      />
+    </div>
+    <div class="menuItems">
+      <hr class="divisor">
+      <ul class="listaNavegacion">
+        <ng-container *ngIf="loadMenu">
+          <li *ngFor="let item of menuItems" [ngClass]="{'active': activeItem === item.to}" class="carrilElemento">
+            <a [routerLink]="item.to" class="fullLink">
+              <div class="flex">
+                <div class="iconBox">
+                  <img [src]="activeItem === item.to ? item.activeIcon : item.icon" [alt]="item.label" width="32" height="32" />
+                </div>
+                {{ item.label }}
+              </div>
+            </a>
+            <ng-container *ngIf="item.subItems">
+              <ul class="subMenu">
+                <li *ngFor="let subItem of item.subItems" class="subElemento">
+                  <a [routerLink]="subItem.to" class="link">
+                    {{ subItem.label }}
+                  </a>
+                </li>
+              </ul>
+            </ng-container>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <div class="seccionInferior">
+    <div class="menuItems">
+      <hr class="divisor" />
+      <a class="link">
+        <div class="flex">
+          <div class="iconBox">
+            <img src=".././../../../assets/Icons/Malta/salir_lleno.svg" alt="Salir" width="32" height="32" />
+          </div>
+          Salir
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+            <!-- <li *ngFor="let item of menuItems"
+
+              class={`$"carrilElemento} ${
+                activeItem === item.to ? styles.active : ""
+              }`}
+            >
+              <Link
+                to={item.to}
+                class="fullLink}
+                onClick={() => handleItemClick(item.to)}
+              >
+                <div class="flex}>
+                  <div class="iconBox}>
+                    <img
+                      src={`${
+                        activeItem === item.to ? item.activeIcon : item.icon
+                      }`}
+                      alt={item.label}
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                  {item.label}
+                </div>
+              </Link>
+              {item.subItems && (
+                <ul key={index} class="subMenu}>
+                  {item.subItems.map((subItem) => (
+                    <Link
+                      to={subItem.to}
+                      class="link}
+                      onClick={() => handleItemClick(subItem.to)}
+                    >
+                      <li
+                        key={subItem.label}
+                        class="subElemento}
+                      >
+                        {subItem.label}
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+      </ul>
+    </div>
+  </div>
+  <div class="seccionInferior}>
+    <div class="menuItems}>
+      <hr class="divisor} />
+      <Link class="link} onClick={() => handleLogoutClick()}>
+        <div class="flex}>
+          <div className="iconBox}>
+            <img src={salir_lineal} alt="Salir" width="32" height="32" />
+          </div>
+          Salir
+        </div>
+      </Link>
+    </div>
+  </div>
+</div> -->

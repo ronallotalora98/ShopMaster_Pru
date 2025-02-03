@@ -7,7 +7,7 @@ import { CardCreateCategoryComponent } from '../../components/card-create-catego
   standalone: true,
   imports:[CardTableCategoryComponent, CardCreateCategoryComponent],
   templateUrl: './category-page.component.html',
-  styleUrls: ['./category-page.component.css']
+  styleUrls: ['./category-page.component.scss']
 })
 export class CategoryPageComponent implements OnInit {
 

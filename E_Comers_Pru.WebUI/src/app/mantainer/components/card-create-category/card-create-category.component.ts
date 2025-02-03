@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CategoryService } from 'src/app/shared/service/category.service';
 import { IResponseVM } from 'src/app/shared/Models/response.api';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-card-create-category',
   standalone: true,
-  imports: [BrowserModule,CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule  ],
+  providers:[CategoryService],
   templateUrl: './card-create-category.component.html',
   styleUrls: ['./card-create-category.component.scss']
 })

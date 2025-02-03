@@ -1,12 +1,14 @@
-<app-top-bar (mobileMenuButtonClicked)="onToggleMobileMenu()"></app-top-bar>
 <div class="wrapper">
   <!-- Top Bar -->
   <!-- Side Bar -->
-   <div class="column column1" id="main-menus">
-     <app-sidebar></app-sidebar>
-   </div>
-  <div class=" column column2 main-content">
-    <div class="page-content">
+  <div class="column column1 main_menu" id="main-menus">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="column column2">
+    <div class="header_box">
+      <app-top-bar (mobileMenuButtonClicked)="onToggleMobileMenu()" style="width: 100%;"></app-top-bar>
+    </div>
+    <div class="page_content">
       <div class="container-fluid">
         <!-- Main Content -->
         <router-outlet />

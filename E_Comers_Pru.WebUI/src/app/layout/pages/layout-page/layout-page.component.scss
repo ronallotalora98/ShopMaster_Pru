@@ -2,6 +2,7 @@
   display: flex;
   margin-top: 15px;
 }
+
 .main-content {
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +11,7 @@
   background-color: #FAF9F9;
 }
 
-#main-menu {
+.main_menu {
   height: 100vh;
   min-width: 200px;
   padding-bottom: 15px;
@@ -38,6 +39,15 @@
 
 .column2 {
   width: 100%;
-  margin-left: 350px;
+  margin-left: 290px;
   background-color: #FAF9F9;
+}
+
+.header_box {
+  height: auto;
+  display: flex;
+  gap: 10%;
+}
+.page_content {
+  padding: 1rem;
 }
