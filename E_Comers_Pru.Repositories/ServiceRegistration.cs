@@ -18,6 +18,7 @@ namespace E_Comers_Pru.Repositories
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepositoy, ProductRepositoy>();
+            services.AddScoped<IShopRepository, ShopRepository>();
 
 
 
