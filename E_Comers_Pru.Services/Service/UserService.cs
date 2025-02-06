@@ -51,7 +51,7 @@ namespace E_Comers_Pru.Services.Service
                 if (entitiesByName.Any())
                 {
                     result.Result = false;
-                    result.Message = "Ya existe un rol con el nombre ingresado";
+                    result.Message = "Ya existe un Usuario con el nombre ingresado";
                     return result;
                 }
 

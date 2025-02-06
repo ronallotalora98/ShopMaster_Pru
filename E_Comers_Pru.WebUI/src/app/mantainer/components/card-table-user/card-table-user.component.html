@@ -1,3 +1,42 @@
-<p>
-  card-table-user works!
-</p>
+
+<div class="encabezado">
+  <h2 class="title">Listado de Users</h2>
+  <p class="description">Tabla que muestra el Listado de Users Creados</p>
+</div>
+<hr class="divisor" />
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Rol</th>
+
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of userData;">
+      <td>{{ item.id }}</td>
+      <th>{{item.name}}</th>
+      <td>{{item.email}}</td>
+      <td>{{item.rolId}}</td>
+
+      <td style="text-align: center;">
+        <button class="noStyle" (click)="item.id ? seeUser(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/ver_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)=" item.id ? editUser(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/editar_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)="item.id ? deleteUser(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
