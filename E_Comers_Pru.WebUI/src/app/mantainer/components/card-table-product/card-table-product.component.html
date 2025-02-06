@@ -1,3 +1,44 @@
-<p>
-  card-table-product works!
-</p>
+<div class="encabezado">
+  <h2 class="title">Listado de Productos</h2>
+  <p class="description">Esto es una tabla de todos los productos que se han creado en la Plataforma.</p>
+</div>
+<hr class="divisor" />
+
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Categoría</th>
+      <th scope="col">Inventario</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of productData;">
+      <td>{{ item.id }}</td>
+      <th>{{item.name}}</th>
+      <td>{{item.description}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.categoryId}}</td>
+      <td>{{item.inventory}}</td>
+      <td> <img [src]="item.image" alt="" width="150px" height="80px"></td>
+
+      <td style="text-align: center;">
+        <button class="noStyle" (click)="item.id ? seeProduct(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/ver_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)=" item.id ? editProduct(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/editar_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)="item.id ? deleteProduct(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -3,3 +3,37 @@
   <p class="description">Cadegorias creadas con su descripcion y codigo puedes modificar y eliminar.</p>
 </div>
 <hr class="divisor" />
+
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Acciones</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of categoryData;">
+      <td>{{ item.id }}</td>
+      <th>{{item.name}}</th>
+      <td>{{item.code}}</td>
+
+      <td style="text-align: center;">
+        <button class="noStyle" (click)="item.id ? seeCategy(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/ver_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)=" item.id ? editCategory(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/editar_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)="item.id ? deleteCategory(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

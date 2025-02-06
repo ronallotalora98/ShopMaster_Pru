@@ -20,7 +20,7 @@ export class CategoryService {
 
   public createCategory(category: CategoryDto): Observable<CategoryDto> {
     return this.http.post<CategoryDto>(
-      `${environment.apiUrl}/Category/getCategories`, category);
+      `${environment.apiUrl}/Category/create`, category);
   }
 
 }

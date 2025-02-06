@@ -1,30 +1,31 @@
 <div class="container">
-  <h2>Crear Categoría</h2>
+  <h2  class="title">Crear Categoría</h2>
   <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="container_form row">
 
-    <div class="formColumn col-6">
-      <label for="name">Nombre:</label>
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted  && categoryForm.controls['name'].invalid}">
+      <label for="name" >Nombre:</label>
       <div class="formInput">
         <input id="name" formControlName="name" type="text" required>
-        <button class="iconoBorrarClase">
+        <button class="iconoBorrarClase" *ngIf="categoryForm.controls['name'].value" (click)="clearField('name')">
           <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
         </button>
       </div>
     </div>
-    <div class="formColumn col-6">
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted  && categoryForm.controls['code'].invalid}">
       <label for="code">Código:</label>
       <div class="formInput">
         <input id="code" formControlName="code" type="text" required>
-        <button class="iconoBorrarClase">
+        <button class="iconoBorrarClase" *ngIf="categoryForm.controls['code'].value" (click)="clearField('name')">
           <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
         </button>
       </div>
     </div>
 
     <div class="formFoot">
-      <button class="button_style primary">Limpiar Campos</button>
+      <button class="button_style primary" (click)="clearFields()" >Limpiar Campos</button>
 
-      <button class="button_style success" type="submit" [disabled]="categoryForm.invalid">Crear Categoria
+      <button class="button_style success" type="submit">Crear Categoria
         <img src="../../../../assets/Icons/Malta/enviar_lineal.svg" alt="" width="32px" height="32px"></button>
     </div>
   </form>

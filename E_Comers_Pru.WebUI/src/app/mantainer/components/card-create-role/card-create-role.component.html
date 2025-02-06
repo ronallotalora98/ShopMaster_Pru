@@ -1,3 +1,31 @@
-<p>
-  card-create-role works!
-</p>
+<div class="container">
+  <h2  class="title">Crear Rol</h2>
+  <form [formGroup]="roleForm" (ngSubmit)="onSubmit()" class="container_form row">
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted  && roleForm.controls['name'].invalid}">
+      <label for="name" >Nombre:</label>
+      <div class="formInput">
+        <input id="name" formControlName="name" type="text" required>
+        <button class="iconoBorrarClase" *ngIf="roleForm.controls['name'].value" (click)="clearField('name')">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted  && roleForm.controls['code'].invalid}">
+      <label for="code">Código:</label>
+      <div class="formInput">
+        <input id="code" formControlName="code" type="text" required>
+        <button class="iconoBorrarClase" *ngIf="roleForm.controls['code'].value" (click)="clearField('name')">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formFoot">
+      <button class="button_style primary" (click)="clearFields()" >Limpiar Campos</button>
+
+      <button class="button_style success" type="submit">Crear Rol
+        <img src="../../../../assets/Icons/Malta/enviar_lineal.svg" alt="" width="32px" height="32px"></button>
+    </div>
+  </form>

@@ -12,6 +12,7 @@ namespace E_Comers_Pru.Common.Dtos
         public string? Name { get; set; }
         public string? Password { get; set; }
         public string? Email { get; set; }
+        public int RolId { get; set; }
 
     }
 }

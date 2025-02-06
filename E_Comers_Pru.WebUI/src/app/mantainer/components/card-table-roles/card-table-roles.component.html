@@ -1,7 +1,7 @@
 
 <div class="encabezado">
   <h2 class="title">Listado de Roles</h2>
-  <p class="description">asdjalksfjalkdsfalksfjlaskjflak</p>
+  <p class="description">Tabla que muestra el Listado de Roles Creados</p>
 </div>
 <hr class="divisor" />
 
@@ -12,9 +12,6 @@
       <th scope="col">Nombre</th>
       <th scope="col">Codigo</th>
       <th scope="col">Acciones</th>
-
-
-
     </tr>
   </thead>
   <tbody>
@@ -24,9 +21,15 @@
       <td>{{item.code}}</td>
 
       <td style="text-align: center;">
-        <button  status="info" style="margin: 5px;">Edit</button>
-        <button   class="primario" style="margin: 5px;" (click)="goToVerDetalle(item.id)">Ver Detalle</button>
-        <button   class="primario" style="margin: 5px;" (click)="goToVerDetalle(item.id)">Eliminar</button>
+        <button class="noStyle" (click)="item.id ? seeRole(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/ver_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)=" item.id ? editRole(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/editar_lineal.svg" alt="Clear" />
+        </button>
+        <button class="noStyle" (click)="item.id ? deleteRole(item.id) : null">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
       </td>
     </tr>
   </tbody>

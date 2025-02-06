@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RoleService } from 'src/app/shared/service/role.service';
+import { RoleDto } from '../../models/role.model';
 
 @Component({
   selector: 'app-card-table-roles',
@@ -14,9 +15,9 @@ import { RoleService } from 'src/app/shared/service/role.service';
 export class CardTableRolesComponent implements OnInit {
 
 tituloTable: string = 'Listado de Roles';
-roleData:any[]= [];
- data = [
-  ]
+@Input() roleData:RoleDto[]= [
+  {id: 1, name:'Administrador', code:'Admin'}
+];
 
 
 
@@ -35,7 +36,14 @@ roleData:any[]= [];
 
   }
 
-  goToVerDetalle(id:number) {
+  seeRole(id:number){
+
+  }
+  editRole(id:number){
+
+  }
+
+  deleteRole(id:number){
 
   }
 

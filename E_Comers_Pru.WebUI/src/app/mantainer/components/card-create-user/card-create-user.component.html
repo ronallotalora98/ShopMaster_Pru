@@ -1,0 +1,53 @@
+<div class="container">
+  <h2  class="title">Crear Producto</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="container_form row">
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && userForm.controls['name'].invalid}">
+      <label for="name">Nombre:</label>
+      <div class="formInput">
+        <input id="name" formControlName="name" type="text" required>
+        <button *ngIf="userForm.controls['name'].value" (click)="clearField('name')" class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && userForm.controls['password'].invalid}">
+      <label for="password">Contraseña:</label>
+      <div class="formInput">
+        <input id="password" formControlName="password" type="password" required>
+        <button *ngIf="userForm.controls['password'].value" (click)="clearField('password')"
+          class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && userForm.controls['email'].invalid}">
+      <label for="email">Correo:</label>
+      <div class="formInput">
+        <input id="email" formControlName="email" type="text" required>
+        <button *ngIf="userForm.controls['email'].value" (click)="clearField('email')" class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && userForm.controls['rolId'].invalid}">
+      <label for="rolId">Rol:</label>
+      <div class="formInput">
+        <select id="rolId" formControlName="rolId" required>
+          <option *ngFor="let rol of roleSelect" [value]="rol.id">{{ rol.name }}</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="formFoot">
+      <button class="button_style primary" (click)="clearFields()">Limpiar Campos</button>
+
+      <button class="button_style success" type="submit">Crear Producto
+        <img src="../../../../assets/Icons/Malta/enviar_lineal.svg" alt="" width="32px" height="32px"></button>
+    </div>
+  </form>

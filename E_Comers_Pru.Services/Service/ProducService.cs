@@ -29,7 +29,7 @@ namespace E_Comers_Pru.Services.Service
             try
             {
                 IEnumerable<ProductEntity> data = await ProductRepositoy.GetProducts();
-                result.Element = Mapper.Map<IEnumerable<ProductEntity>>(data);
+                result.Element = Mapper.Map<IEnumerable<ProductDto>>(data);
             }
             catch (Exception ex)
             {

@@ -2,7 +2,7 @@
 
 <div class="card">
   <div class="card-body">
-    <app-card-create-category></app-card-create-category>
+    <app-card-create-category (categorySaved)="getCategories()"></app-card-create-category>
   </div>
   <!-- <div class="card-actions">
     <button class="button_style primary">Agregar Categoria
@@ -12,9 +12,6 @@
 
 <div class="card mt-2">
   <div class="card-body">
-    <app-card-table-category></app-card-table-category>
-  </div>
-  <div class="card-actions">
-
+    <app-card-table-category [categoryData]="categoryData"></app-card-table-category>
   </div>
 </div>

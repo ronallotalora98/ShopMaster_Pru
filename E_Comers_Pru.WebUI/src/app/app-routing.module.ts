@@ -7,6 +7,7 @@ import { RolePageComponent } from './mantainer/pages/Role-page/Role-page.compone
 import { OfferPageComponent } from './mantainer/pages/offer-page/offer-page.component';
 import { CategoryPageComponent } from './mantainer/pages/category-page/category-page.component';
 import { ProductPageComponent } from './mantainer/pages/product-page/product-page.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   {path:'home', component:LayoutPageComponent,
@@ -22,6 +23,9 @@ const routes: Routes = [
       {path:'categoria', component:CategoryPageComponent},
       {path:'producto', component:ProductPageComponent},
     ]
+  },
+  {
+    path:'', component:LoginComponent
   }
 ];
 

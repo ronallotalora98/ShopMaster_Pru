@@ -21,6 +21,7 @@
 
 .noStyle {
   background-color: #ffffff;
+  border: none;
 }
 
 .primary {
@@ -234,9 +235,48 @@ label {
   color: red;
   font-size: 12px;
 }
+.formError input {
+  border-color: red;
+}
+
+.formError label {
+  margin-top: 5px;
+  color: red;
+  font-size: 12px;
+}
 
 
 .container_form {
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+
+.formColumn select {
+  // padding: 15px 40px 15px 20px;
+  min-width: 270px;
+  height: 40px;
+  background: #FAF9F9;
+  mix-blend-mode: normal;
+  border: 1px solid #024588;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #024588;
+  box-shadow: unset;
+  outline: unset;
+  width: 100%;
+  position: relative;
+}
+
+
+.title {
+  color:  #002846;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 2rem;
 }

@@ -27,6 +27,8 @@ namespace E_Comers_Pru.Services
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProducService, ProducService>();
             services.AddScoped<IShopService, ShopService>();
+            services.AddScoped<IUserService, UserService>();
+
 
 
         }

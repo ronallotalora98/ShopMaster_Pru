@@ -1,0 +1,66 @@
+.container_component {
+  width: 100%;
+  height: 100vh;
+  background-color: #e1f3fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  padding: 5rem 5rem 0rem 5rem;
+}
+.container_login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border: 7PX solid #c6e6ff;
+  border-bottom: none;
+  margin: auto;
+  border-radius: 12PX;
+  box-sizing: border-box;
+}
+
+.container_right {
+  width: 50%;
+  background-color: white;
+  border-top: 3px solid red;
+}
+
+.container_left {
+  width: 50%;
+  background-color: white;
+  border-top: 2px solid red;
+  background-image: url("https://static.retrip.jp/spot/bb21134a-e402-4314-a9f1-7f64ca08154b/images/a668a690-ec7c-4a1d-a079-14f86b338755_l.jpg");
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área del div sin distorsionar */
+  background-position: center; /* Centra la imagen */
+  background-repeat:no-repeat;
+}
+
+.formLogin {
+  text-align: center;
+  padding: 10rem;
+}
+.title {
+  color:  #002846;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 2rem;
+}
+
+
+.logoImagen {
+  padding-left: 1rem;
+  text-align: start;
+  cursor: pointer;
+}
+
+hr.divisor {
+  border-top: 1px solid rgba(0, 40, 70, 0.3);
+  margin: 10px 0;
+  width: 100%;
+}
+
+.icon {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast
+}

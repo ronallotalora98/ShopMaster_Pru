@@ -1,3 +1,77 @@
-<p>
-  card-create-product works!
-</p>
+<div class="container">
+  <h2  class="title">Crear Producto</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="container_form row">
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && productForm.controls['name'].invalid}">
+      <label for="name">Nombre:</label>
+      <div class="formInput">
+        <input id="name" formControlName="name" type="text" required>
+        <button *ngIf="productForm.controls['name'].value" (click)="clearField('name')" class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && productForm.controls['description'].invalid}">
+      <label for="description">Descripción:</label>
+      <div class="formInput">
+        <input id="description" formControlName="description" type="text" required>
+        <button *ngIf="productForm.controls['description'].value" (click)="clearField('description')"
+          class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && productForm.controls['price'].invalid}">
+      <label for="price">Precio:</label>
+      <div class="formInput">
+        <input id="price" formControlName="price" type="number" required>
+        <button *ngIf="productForm.controls['price'].value" (click)="clearField('price')" class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && productForm.controls['categoryId'].invalid}">
+      <label for="categoryId">Categoría:</label>
+      <div class="formInput">
+        <select id="categoryId" formControlName="categoryId" required>
+          <option *ngFor="let category of categoySelect" [value]="category.id">{{ category.name }}</option>
+        </select>
+        <!-- <input id="categoryId" formControlName="categoryId" type="number" required>
+        <button *ngIf="productForm.controls['categoryId'].value" (click)="clearField('categoryId')"
+          class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button> -->
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && productForm.controls['image'].invalid}">
+      <label for="image">Imagen URL:</label>
+      <div class="formInput">
+        <input id="image" formControlName="image" type="text" required>
+        <button *ngIf="productForm.controls['image'].value" (click)="clearField('image')" class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formColumn col-6" [ngClass]="{'formError': isSubmitted && productForm.controls['inventory'].invalid}">
+      <label for="inventory">Inventario:</label>
+      <div class="formInput">
+        <input id="inventory" formControlName="inventory" type="number" required>
+        <button *ngIf="productForm.controls['inventory'].value" (click)="clearField('inventory')"
+          class="iconoBorrarClase">
+          <img src="../../../../assets/Icons/Malta/borrar_lineal.svg" alt="Clear" />
+        </button>
+      </div>
+    </div>
+
+    <div class="formFoot">
+      <button class="button_style primary" (click)="clearFields()">Limpiar Campos</button>
+
+      <button class="button_style success" type="submit">Crear Producto
+        <img src="../../../../assets/Icons/Malta/enviar_lineal.svg" alt="" width="32px" height="32px"></button>
+    </div>
+  </form>

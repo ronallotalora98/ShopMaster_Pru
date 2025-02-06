@@ -17,8 +17,15 @@ namespace E_Comers_Pru.Services.Mapper
             CreateMap<UserDto, UserEntity>();
             CreateMap<UserEntity, UserDto>();
 
-            CreateMap<RolDto, RolEntity>();
-            CreateMap<RolEntity, RolDto>();
+            CreateMap<RolDto, RolEntity>()
+             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+             .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Name))
+             .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.Code));
+
+            CreateMap<RolEntity, RolDto>()
+             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Description))
+             .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.Code));
 
             CreateMap<CategoryDto, CategoryEntity>();
             CreateMap<CategoryEntity, CategoryDto>();

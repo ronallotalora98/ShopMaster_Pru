@@ -1,0 +1,46 @@
+<div class="container_component">
+  <div class="container_login">
+
+    <!-- Formulario de la derecha -->
+    <div class="container_right">
+      <div class="logoImagen">
+        <img src="../../../assets/Img/ShopMasterLogo.png" alt="Logo" width="150" height="100" />
+      </div>
+
+      <div class="formLogin">
+        <h2 class="title">Hola, Esta es el Acceso a tu sesion privada</h2>
+        <hr class="divisor">
+
+        <div class="formColumn">
+          <label for="name">Usuario:</label>
+          <div class="formInput">
+            <input id="name" type="text" [(ngModel)]="loginRequestVM.username">
+          </div>
+        </div>
+
+        <div class="formColumn">
+          <label for="password">Contraseña:</label>
+          <div class="formInput">
+            <input id="password" [type]="passwordFieldType" [(ngModel)]="loginRequestVM.password">
+            <button type="button" class="iconoBorrarClase" (click)="togglePasswordVisibility()">
+              <img
+                [src]="passwordFieldType === 'password' ? '../../../../assets/Icons/Malta/ver_lineal.svg' : '../../../../assets/Icons/Malta/no_ver_lineal.svg'"
+                alt="ver" />
+            </button>
+          </div>
+        </div>
+
+
+        <button class="button_style danger" type="submit" style="margin: auto;" (click)="login()">Ingresar
+          <img class="icon" src="../../../assets/Icons/Malta/derecha_lineal.svg" alt="" width="32px"
+            height="32px"></button>
+      </div>
+
+    </div>
+    <!-- parte de la Izquierda -->
+    <div class="container_left">
+      <!-- <img src="https://th.bing.com/th/id/OIP.eqc0tNCjidqRQ9b5r_4G3wHaEo?pid=ImgDet&w=474&h=296&rs=1" alt=""  width="100%" height="100%"> -->
+    </div>
+
+  </div>
+</div>

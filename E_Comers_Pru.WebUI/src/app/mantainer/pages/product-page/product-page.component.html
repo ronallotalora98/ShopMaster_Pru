@@ -1,3 +1,20 @@
-<p>
-  product-page works!
-</p>
+
+
+<div class="card">
+  <div class="card-body">
+    <app-card-create-product></app-card-create-product>
+  </div>
+  <!-- <div class="card-actions">
+    <button class="button_style primary">Agregar Categoria
+      <img src="iconos/flecha-derecha-border.svg" alt="" width="32px" height="32px"></button>
+  </div> -->
+</div>
+
+<div class="card mt-2">
+  <div class="card-body">
+    <app-card-table-product [productData]="productDto"></app-card-table-product>
+  </div>
+  <div class="card-actions">
+
+  </div>
+</div>

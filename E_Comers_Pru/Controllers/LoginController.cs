@@ -19,7 +19,7 @@ namespace E_Comers_Pru.WebApi.Controllers
             LoginService = loginService;
         }
 
-        [HttpPost("auth-backoffice")]
+        [HttpPost("auth-login")]
         public async Task<IActionResult> AuthBackoffice(LoginRequestVM vm)
         {
             try
