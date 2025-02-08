@@ -2,6 +2,7 @@
 using E_Comers_Pru.Common.ViewModel.Request;
 using E_Comers_Pru.Services.IService;
 using E_Comers_Pru.Services.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace E_Comers_Pru.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ShopController : ControllerBase
     {
         private readonly IShopService ShopService;

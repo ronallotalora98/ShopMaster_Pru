@@ -4,11 +4,12 @@ import { CardCreateRoleComponent } from '../../components/card-create-role/card-
 import { IResponseVM } from 'src/app/shared/Models/response.api';
 import { RoleDto } from '../../models/role.model';
 import { RoleService } from 'src/app/shared/service/role.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-Role-page',
   standalone: true,
-  imports: [CardTableRolesComponent, CardCreateRoleComponent],
+  imports: [CardTableRolesComponent, CardCreateRoleComponent, HttpClientModule],
   providers:[RoleService],
   templateUrl: './Role-page.component.html',
   styleUrls: ['./Role-page.component.scss']

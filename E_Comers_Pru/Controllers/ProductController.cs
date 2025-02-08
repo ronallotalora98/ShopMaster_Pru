@@ -1,6 +1,7 @@
 ﻿using E_Comers_Pru.Common.Dtos;
 using E_Comers_Pru.Common.ViewModel;
 using E_Comers_Pru.Services.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace E_Comers_Pru.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProducService ProducService;

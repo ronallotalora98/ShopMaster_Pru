@@ -8,14 +8,17 @@ import { OfferPageComponent } from './mantainer/pages/offer-page/offer-page.comp
 import { CategoryPageComponent } from './mantainer/pages/category-page/category-page.component';
 import { ProductPageComponent } from './mantainer/pages/product-page/product-page.component';
 import { LoginComponent } from './auth/login/login.component';
+import { validatorAccessRouterGuard } from './auth/service/aut.guard';
 
-const routes: Routes = [
+export const routes: Routes = [
   {path:'home', component:LayoutPageComponent,
+    canMatch:[validatorAccessRouterGuard],
     children:[
       {path:'', component: HomePagesComponent}
     ]
   },
   {path:'mantenedores', component:LayoutPageComponent,
+     canMatch:[validatorAccessRouterGuard],
     children:[
       {path:'usuario', component:UserPageComponent},
       {path:'rol', component:RolePageComponent},
@@ -29,8 +32,8 @@ const routes: Routes = [
   }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }

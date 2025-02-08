@@ -36,13 +36,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginRequestVM);
-    this.router.navigate(['/home']);
-    return;
     this.loginService.login(this.loginRequestVM).subscribe(
       () => {
         this.isLoading = false;
-        this.router.navigate(['/']); // Redirige a la página principal o a otra protegida
+        this.router.navigate(['/home']); // Redirige a la página principal o a otra protegida
       },
       error => {
         this.isLoading = false;

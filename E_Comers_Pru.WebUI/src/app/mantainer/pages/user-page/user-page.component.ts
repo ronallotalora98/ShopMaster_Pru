@@ -4,11 +4,12 @@ import { CardTableUserComponent } from "../../components/card-table-user/card-ta
 import { UserService } from 'src/app/shared/service/user.service';
 import { UserDto } from '../../models/user.model';
 import { IResponseVM } from 'src/app/shared/Models/response.api';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-page',
   standalone: true,
-  imports: [CardCreateUserComponent, CardTableUserComponent],
+  imports: [CardCreateUserComponent, CardTableUserComponent, HttpClientModule],
   providers: [UserService],
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.scss']

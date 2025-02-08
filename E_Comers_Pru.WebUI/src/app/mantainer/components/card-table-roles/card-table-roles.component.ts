@@ -26,14 +26,6 @@ tituloTable: string = 'Listado de Roles';
   ) { }
 
   ngOnInit() {
-    // this.cilindoService.getData().subscribe((res: any[]) => {
-    //   // console.log(res);
-    //   this.data = res.map((item, index) => ({
-    //     ...item,
-    //     position: index + 1  // Agregamos la posición (index + 1 para hacerlo 1-indexed)
-    //   }));;
-    // })
-
   }
 
   seeRole(id:number){

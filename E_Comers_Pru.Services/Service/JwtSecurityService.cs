@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace E_Comers_Pru.Services.Service
 {
-    public class JwtSecurityService: IJwtSecurityService
+    public class JwtSecurityService : IJwtSecurityService
     {
         private readonly JwtSettings JwtSettings;
 
@@ -26,27 +26,26 @@ namespace E_Comers_Pru.Services.Service
         {
             try
             {
-                string? issuer = JwtSettings?.Issuer;
-                string? audience = JwtSettings?.Audience;
-                byte[] key = Encoding.ASCII.GetBytes(JwtSettings?.SecretKey ?? string.Empty);
-                double? expireTime = JwtSettings?.Minutes;
-
-                var claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.Sid, dto.Id.ToString() ?? string.Empty));
-                claims.Add(new Claim(ClaimTypes.Name, dto.Name ?? string.Empty));
-                claims.Add(new Claim(ClaimTypes.Email, dto.Email ?? string.Empty));
+                var key = Encoding.UTF8.GetBytes(JwtSettings.SecretKey.ToString() ?? throw new InvalidOperationException("SecretKey is missing"));
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Sid, dto.Id.ToString() ?? string.Empty),
+                    new Claim(ClaimTypes.Name, dto.Name ?? string.Empty),
+                    new Claim(ClaimTypes.NameIdentifier, dto.Email ?? string.Empty),
+                    new Claim(ClaimTypes.Email, dto.Email ?? string.Empty)
+                };
 
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var token = tokenHandler.CreateJwtSecurityToken(new SecurityTokenDescriptor
+                var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    Subject = new ClaimsIdentity(claims.ToArray()),
-                    Issuer = issuer,
-                    Audience = audience,
-                    NotBefore = DateTime.UtcNow,
-                    Expires = DateTime.UtcNow.AddMinutes(expireTime ?? 0),
+                    Subject = new ClaimsIdentity(claims),
+                    // Issuer = JwtSettings.Issuer,
+                    // Audience = JwtSettings.Audience,
+                    Expires = DateTime.UtcNow.AddMinutes(JwtSettings.Minutes ?? 60),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                });
+                };
 
+                var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
             }
             catch (Exception ex)
@@ -60,7 +59,7 @@ namespace E_Comers_Pru.Services.Service
             try
             {
                 var issuers = JwtSettings.Issuer?.Split(",");
-                var audience = JwtSettings.Audience?.Split(",");
+                var audiences = JwtSettings.Audience?.Split(",");
                 var key = Encoding.UTF8.GetBytes(JwtSettings.SecretKey ?? string.Empty);
 
                 var tokenHandler = new JwtSecurityTokenHandler();
@@ -70,8 +69,8 @@ namespace E_Comers_Pru.Services.Service
                     ValidateAudience = JwtSettings?.UseAudience ?? false,
                     ValidateLifetime = false,
                     ValidateIssuerSigningKey = JwtSettings?.ValidateIssuerSigningKey ?? false,
-                    ValidIssuers = issuers,
-                    ValidAudiences = audience,
+                    // ValidIssuers = issuers,
+                    // ValidAudiences = audiences,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                 }, out SecurityToken validatedToken);
 

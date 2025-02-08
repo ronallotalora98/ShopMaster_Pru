@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 // import { FeatherModule } from 'angular-feather';
 import { IMenuItem } from 'src/app/shared/Models/layout.model';
+import { LoginService } from 'src/app/shared/service/login.service';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
   imports:[RouterModule, CommonModule],
+  providers:[LoginService],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
@@ -67,8 +69,13 @@ export class SidebarComponent implements OnInit {
       ]
     }
   ];
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logaut(){
+    this.loginService.logout();
+    this.router.navigate(['']);
   }
 }

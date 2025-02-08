@@ -22,3 +22,7 @@ export interface RolDto {
   name: string;
   code: string;
 }
+
+export interface RenovateTokenRequestVM {
+  token:string;
+}
