@@ -26,27 +26,32 @@ namespace E_Comers_Pru.Services.Service
         {
             try
             {
-                var key = Encoding.UTF8.GetBytes(JwtSettings.SecretKey.ToString() ?? throw new InvalidOperationException("SecretKey is missing"));
+                string? issuer = JwtSettings?.Issuer;
+                string? audience = JwtSettings?.Audience;
+
+                byte[] key = Encoding.UTF8.GetBytes(JwtSettings?.SecretKey ?? string.Empty);
+                double expireTime = JwtSettings?.Minutes ?? 60; // Valor predeterminado si Minutes es nulo.
+
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Sid, dto.Id.ToString() ?? string.Empty),
                     new Claim(ClaimTypes.Name, dto.Name ?? string.Empty),
-                    new Claim(ClaimTypes.NameIdentifier, dto.Email ?? string.Empty),
                     new Claim(ClaimTypes.Email, dto.Email ?? string.Empty)
                 };
 
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var tokenDescriptor = new SecurityTokenDescriptor
+                var token = tokenHandler.CreateJwtSecurityToken(new SecurityTokenDescriptor
                 {
-                    Subject = new ClaimsIdentity(claims),
-                    // Issuer = JwtSettings.Issuer,
-                    // Audience = JwtSettings.Audience,
-                    Expires = DateTime.UtcNow.AddMinutes(JwtSettings.Minutes ?? 60),
+                    Issuer = issuer,
+                    Audience = audience,
+                    Subject = new ClaimsIdentity(claims.ToArray()),
+                    NotBefore = DateTime.UtcNow,
+                    Expires = DateTime.UtcNow.AddMinutes(expireTime), // Configura correctamente la expiración
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                };
+                });
 
-                var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
+                //  return tokenHandler.WriteToken(token);
             }
             catch (Exception ex)
             {

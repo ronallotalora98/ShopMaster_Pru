@@ -13,7 +13,7 @@ export const authInterceptorInterceptor: HttpInterceptorFn = (request: HttpReque
   return next(request).pipe(
     catchError((error) => {
       if (error.status === 401 && accessToken) {
-        return handleTokenExpired(request, next, loginService);
+        // return handleTokenExpired(request, next, loginService);
       }
       return throwError(error);
     })

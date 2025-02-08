@@ -9,7 +9,7 @@ namespace E_Comers_Pru.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService UserService;

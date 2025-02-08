@@ -57,7 +57,7 @@ namespace E_Comers_Pru.Services.Service
 
                 UserEntity data = Mapper.Map<UserEntity>(dto);
                 data = await UserRepository.Create(data);
-                result.Element = Mapper.Map<CategoryDto>(data);
+                result.Element = Mapper.Map<UserDto>(data);
 
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 using E_Comers_Pru.Common.Settings;
 using E_Comers_Pru.Services;
+using E_Comers_Pru.Services.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
@@ -17,7 +18,7 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSet
 builder.Services.AddServiceInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
-
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddCors(options =>
 {
@@ -32,6 +33,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseRouting();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -40,24 +43,25 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("AllowAllOrigins");
 app.UseHttpsRedirection();
-
+app.UseMiddleware<AuthenticationMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.Use(async (context, next) =>
 {
-    if (context.Request.Headers.ContainsKey("Authorization"))
+    if (context.User.Identity?.IsAuthenticated == true)
     {
-        var token = context.Request.Headers["Authorization"].ToString();
-        Console.WriteLine($"Token recibido: {token}");
+        Console.WriteLine("Usuario autenticado:");
+        foreach (var claim in context.User.Claims)
+        {
+            Console.WriteLine($"Tipo: {claim.Type}, Valor: {claim.Value}");
+        }
     }
     else
     {
-        Console.WriteLine("No se recibió token en el header Authorization.");
+        Console.WriteLine("Usuario no autenticado.");
     }
     await next();
 });
-
 app.MapControllers();
 
 app.Run();
