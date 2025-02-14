@@ -1,4 +1,5 @@
 Patrones de Diseño Implementados en el  Código
+
 El código implementa varios patrones de diseño en diferentes capas de la aplicación. Aquí te explico cuáles se están usando y por qué son beneficiosos:
 
 1. Inyección de Dependencias (Dependency Injection - DI)
