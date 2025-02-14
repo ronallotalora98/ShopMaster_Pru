@@ -3,6 +3,7 @@ Patrones de Diseño Implementados en el  Código
 El código implementa varios patrones de diseño en diferentes capas de la aplicación. Aquí te explico cuáles se están usando y por qué son beneficiosos:
 
 1. Inyección de Dependencias (Dependency Injection - DI)
+   
 📌 Dónde se usa:
 
 Program.cs
@@ -18,6 +19,7 @@ Se usa para desacoplar la creación de objetos y facilitar la gestión de depend
 ✔️ Separa la lógica de creación de objetos de su uso.
 
 2. Patrón Repositorio (Repository Pattern)
+
 📌 Dónde se usa:
 
 IUserRepository, UserRepository
@@ -32,6 +34,7 @@ El repositorio actúa como una capa intermedia entre la lógica de negocio y la 
 ✔️ Facilita la reutilización y pruebas unitarias.
 
 3. Patrón Unidad de Trabajo (Unit of Work) - Parcialmente Implementado
+
 📌 Dónde se podría mejorar:
 
 Actualmente cada repositorio maneja su propia conexión con ApplicationDbContext, lo cual podría generar múltiples conexiones abiertas a la base de datos.
@@ -41,6 +44,7 @@ Una posible mejora es agregar un Unit of Work (IUnitOfWork), que gestione todas 
 ✔️ Evita problemas de concurrencia y mejora el rendimiento.
 
 4. Patrón de Controlador (Controller Pattern - MVC)
+
 📌 Dónde se usa:
 
 UserController
@@ -53,6 +57,7 @@ Sigues el modelo MVC (Modelo-Vista-Controlador), donde los controladores reciben
 ✔️ Usa convenciones claras ([HttpGet], [HttpPost], etc.).
 
 5. Patrón Servicio (Service Layer)
+
 📌 Dónde se usa:
 
 UserService, LoginService, RoleService, etc.
@@ -65,6 +70,7 @@ Los servicios encapsulan la lógica de negocio y actúan como intermediarios ent
 ✔️ Promueve el principio de responsabilidad única (SRP).
 
 6. Patrón DTO (Data Transfer Object)
+
 📌 Dónde se usa:
 
 UserDto, ResponseVM
@@ -77,6 +83,7 @@ Los DTOs son clases diseñadas para transportar datos entre capas sin exponer di
 ✔️ Facilita la transformación de datos antes de enviarlos al cliente.
 
 7. AutoMapper (Patrón Adapter)
+
 📌 Dónde se usa:
 
 services.AddAutoMapper(typeof(ConfigurationMapper));
