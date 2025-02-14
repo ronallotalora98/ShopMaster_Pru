@@ -7,10 +7,13 @@ El código implementa varios patrones de diseño en diferentes capas de la aplic
 📌 Dónde se usa:
 
 Program.cs
+
 ServiceInfrastructure.cs
 RepositoryInfrastructure.cs
 En los constructores de UserService y UserRepository
+
 🔍 Explicación:
+
 Se usa para desacoplar la creación de objetos y facilitar la gestión de dependencias. En lugar de instanciar clases dentro de otras clases, se registran en IServiceCollection y se inyectan cuando se necesitan.
 
 ✅ Beneficios:
